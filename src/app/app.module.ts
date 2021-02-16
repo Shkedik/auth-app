@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 
 const appRoutes: Routes = [
   {
-    path        : 'app', 
+    path        : 'auth', 
     loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule),
   },
   {
@@ -17,7 +17,7 @@ const appRoutes: Routes = [
   },
   {   
     path: "**",
-    redirectTo:"/app/auth/register",
+    redirectTo:"/apps",
     pathMatch: "full"
   }
 ]
