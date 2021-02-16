@@ -32,8 +32,8 @@ export class RegisterComponent implements OnInit {
 
     this.authService.registerUser(value.email.toLowerCase().trim(), value.password, value.confirmPassword)
     .subscribe(res => {
-      localStorage.setItem('encodedJwt', res.encodeJwt);
-      localStorage.setItem('expiredDate', res.expireDate);
+      localStorage.setItem('encodedJwt', res.encodedJwt);
+      localStorage.setItem('expiredDate', res.expiredDate);
       this.router.navigate(['/apps']);  
     })
   }

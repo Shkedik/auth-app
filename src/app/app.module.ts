@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { AuthGuard } from 'src/core/guards/auth.guards';
 
 const appRoutes: Routes = [
   {
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
   {
     path        : 'apps', 
     loadChildren: () => import('./apps/apps.module').then(m => m.AppsModule),
+    canActivate: [ AuthGuard ]
   },
   {   
     path: "**",
@@ -33,7 +35,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
 
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
 
     this.authService.loginUser(value.email.toLowerCase().trim(), value.password)
       .subscribe(res => {
-        localStorage.setItem('encodeJwt', res.encodeJwt);
-        localStorage.setItem('expiredDate', res.expireDate);
+        localStorage.setItem('encodedJwt', res.encodedJwt);
+        localStorage.setItem('expiredDate', res.expiredDate);
         this.router.navigate(['/apps']);  
       })
   }
